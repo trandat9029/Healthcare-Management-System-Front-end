@@ -9,7 +9,7 @@ export default function SectionMedicalFacility({settings}) {
                 <h3 className='text-3xl font-bold'>Cơ sở y tế</h3>
                 <ButtonMore />
             </div>
-            <div className='py-5'>
+            <div className='pb-5'>
                 <Slider {...settings} >
                     <div className="p-5">
                         <div className="border-slide p-5 cursor-pointer">

@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SectionMedicalFacility from './sections/SectionMedicalFacility';
 import ProminentDoctor from './sections/ProminentDoctor';
-import Handbook from './sections/Handbook';
+import SectionHandbook from './sections/SectionHandbook';
 import SectionAbout from './sections/SectionAbout';
 
 
@@ -40,7 +40,7 @@ export default function Home() {
       </div>
       <div className='max-w-[1200px] m-auto'>
         {/* Handbook */}
-        <Handbook settings={settings} />
+        <SectionHandbook settings={settings} />
       </div>
       <div className='bg-about'>
         <div className=' max-w-[1200px] m-auto'>

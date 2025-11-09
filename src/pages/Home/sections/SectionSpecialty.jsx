@@ -9,7 +9,7 @@ export default function SectionSpecialty({settings}) {
                 <h3 className='text-3xl font-bold'>Chuyên khoa</h3>
                 <ButtonMore />
             </div>
-            <div className=''>
+            <div className='pb-5'>
                 <Slider {...settings} >
                     <div className="p-5">
                         <div className="border-slide p-5 cursor-pointer">
