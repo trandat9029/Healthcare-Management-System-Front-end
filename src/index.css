@@ -10,6 +10,7 @@
     --color-text-content: 17 49 53;
     --color-text-desc: 98 98 98;
     --color-text-title: 26 26 26;
+    --color-search-bg: 245 245 245;
 }
 
 @layer utilities {
@@ -86,6 +87,16 @@
         background-size: cover;
         background-position: center ;
     }
+    /* homepage end */
+
+
+
+    /* medical-specialty */
+
+    .bg-search{
+        background-color: rgb(var(--color-search-bg))
+    }
+    
 }
 
 
