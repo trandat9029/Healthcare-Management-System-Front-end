@@ -8,19 +8,21 @@ export default function SectionAbout() {
             </div>
             <div className='flex mt-10 gap-8'>
                 <div className='w-[50%]'>
-                    <iframe  className='rounded-3xl'
-                        width="100%" height="400" 
-                        src="https://www.youtube.com/embed/FyDQljKtWnI" 
-                        title="CÀ PHÊ KHỞI NGHIỆP VTV1 - BOOKINGCARE - HỆ THỐNG ĐẶT LỊCH KHÁM TRỰC TUYẾN" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
+                    <iframe
+                        className="rounded-3xl"
+                        width="100%"
+                        height="400"
+                        src="https://www.youtube.com/embed/FyDQljKtWnI"
+                        title="CÀ PHÊ KHỞI NGHIỆP VTV1 - BOOKINGCARE - HỆ THỐNG ĐẶT LỊCH KHÁM TRỰC TUYẾP"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                    ></iframe>
                 </div>
                 <div className='w-[50%] '>
                     <div className='grid grid-cols-2 gap-4 mt-5'>
-                         <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer ">
+                         <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer ">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/vnexpress.png" 
@@ -28,7 +30,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/suckhoedoisong.png" 
@@ -36,7 +38,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/142415-logo-vnnet.png" 
@@ -44,7 +46,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/vtv1.png" 
@@ -52,7 +54,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/165432-vtcnewslogosvg.png" 
@@ -60,7 +62,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                <img 
                                     src="/src/assets/images/homepage/aboutS/vnexpress.png" 
@@ -68,7 +70,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/vtv1.png" 
@@ -76,7 +78,7 @@ export default function SectionAbout() {
                                 />
                             </a>
                          </div>
-                        <div class=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
+                        <div className=" bg-white p-5 mx-auto w-[274px] rounded-xl cursor-pointer">
                             <a href="">
                                 <img 
                                     src="/src/assets/images/homepage/aboutS/110757-dantrilogo.png" 
