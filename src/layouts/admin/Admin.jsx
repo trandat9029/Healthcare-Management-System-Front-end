@@ -1,30 +1,43 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import { Navigate, Outlet, useLocation } from "react-router-dom"
 import AdminHeader from '../components/AdminHeader'
 import AdminSidebar from '../components/AdminSidebar'
 import { adminMenu, doctorMenu } from '../../routes/MenuApp'
 import { USER_ROLE } from '../../utils/formatting/constant'
-import checkAccess from '../../utils/validation/CheckAccess'
+import { useAuthStore } from '../../store/useAuthStore'
 
 export default function Admin() {
 
-    const [menu, setMenu] = useState([]);
-    const [userRole, setUserRole] = useState(USER_ROLE.DOCTOR); 
+    const { user, isAuthenticated } = useAuthStore();
     const location = useLocation();
 
-    useEffect(() =>{
-        if (userRole === USER_ROLE.ADMIN) {
-            setMenu(adminMenu);
-        } else if (userRole === USER_ROLE.DOCTOR) {
-            setMenu(doctorMenu);
-        }
-    }, [userRole])
 
-    // Kiểm tra quyền truy cập của Doctor đối với route hiện tại
-    const hasAccess = checkAccess(userRole, location.pathname);
+    // Khởi tạo auth khi vào layout
+//    useEffect(() => {
+//         initialize();
+//     });
 
-     if (!hasAccess) {
-        return <Navigate to="/admin/manage-patient" />; // Chuyển hướng về trang quản lý bệnh nhân cho Doctor
+    // Tính menu theo role
+    const menu = useMemo(() => {
+        return user.roleId === USER_ROLE.ADMIN ? adminMenu : doctorMenu;
+    }, [user.roleId]);
+    
+    // Danh sách trang Doctor được phép
+    const doctorAllowedPaths = useMemo(() => {
+        return doctorMenu.map(item => item.link);
+    }, []);
+
+    // Nếu chưa đăng nhập → App.jsx đã chặn, nhưng vẫn check lại
+    if (!isAuthenticated || !user) {
+        return <Navigate to="/login" replace />;
+    }
+
+    // Kiểm tra quyền truy cập
+    const hasAccess = user.roleId === USER_ROLE.ADMIN || doctorAllowedPaths.includes(location.pathname);
+
+    // Doctor vào trang không được phép → về manage-patient
+    if (!hasAccess) {
+        return <Navigate to="/admin/manage-patient" replace />;
     }
 
     return (
@@ -32,12 +45,14 @@ export default function Admin() {
             <div className='header'>
                 <AdminHeader />
             </div>
-            <div className='flex'>
+            <div className='flex pt-5'>
                 <div className='w-[16%]'>
                     <AdminSidebar menu={menu} />
                 </div>
-                <div className='w-[84%]'>
-                    {<Outlet />}
+                <div className='w-[84%] h-[90vh] p-8 bg-gray-200 rounded-md' >
+                    <div className='bg-white h-full rounded-lg'>
+                        {<Outlet />}
+                    </div>
                 </div>
             </div>
         </div>
