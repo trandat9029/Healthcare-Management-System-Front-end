@@ -20,6 +20,7 @@ export const useAuthStore = create((set) =>({
 
     // Login
     login: async (data) =>{
+        
         set({ loading: true, error: null});
         try {
             const {user , accessToken} = await handleLogin(data);

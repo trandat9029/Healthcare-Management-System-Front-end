@@ -1,5 +1,6 @@
 import axios from"axios"
 
+//Tạo hàm axios để tái sử dụng
 const api = axios.create({
     baseURL: import.meta.env.MODE == "development" ? "http://localhost:8080/api" : "/api",
     withCredentials: true,
@@ -8,33 +9,31 @@ const api = axios.create({
   },
 });
 
-// // Interceptor: tự động thêm token vào header
-// api.interceptors.request.use(
-//   (config) => {
-//     const token = localStorage.getItem('token');
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`;
-//     }
-//     return config;
-//   },
-//   (error) => Promise.reject(error)
-// );
+// INTERCEPTOR GỬI TOKEN TỰ ĐỘNG
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token'); // hoặc sessionStorage
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
+
+// Chỉ trả về data (giữ nguyên)
 api.interceptors.response.use(
-    (response) => {
-        // Thrown error for request with OK status code
-        const { data } = response;
-        return response.data;
-    },
-    // (error) => {
-    //     if (error.response?.status === 401) {
-    //         localStorage.removeItem('token');
-    //         localStorage.removeItem('user');
-    //         window.location.href = '/login'; // Chuyển về login
-    //     }
-    //     return Promise.reject(error);
-    // }
-    
+  (response) => response.data,
+  (error) => {
+    // Xử lý lỗi 401 toàn cục (tùy chọn)
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
 );
 
 export default api;

@@ -17,7 +17,8 @@ export default function LoginPage() {
 
     const handleSubmit = async (values) =>{
         console.log('check values: ', values)
-        try {
+        try { 
+            
             await login(values);
             
         } catch (error) {
